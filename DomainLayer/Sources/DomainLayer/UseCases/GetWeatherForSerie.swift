@@ -34,9 +34,9 @@ extension GetWeatherForSerieImpl: GetWeatherForSerie {
             var sessionsWithWeather: [Session] = []
             for session in event.sessions {
                 let weather = try await weatherRepository.get(for: event.location, at: session.start)
-                sessionsWithWeather.append(.init(name: session.name, start: session.start, end: session.end, weather: weather))
+                sessionsWithWeather.append(.init(name: session.name, type: session.type, start: session.start, end: session.end, weather: weather))
             }
-            eventsWithWeather.append(.init(id: event.id, name: event.name, location: event.location, sessions: sessionsWithWeather))
+            eventsWithWeather.append(.init(serie: event.serie,id: event.id, name: event.name, location: event.location, sessions: sessionsWithWeather))
         }
         return eventsWithWeather
     }

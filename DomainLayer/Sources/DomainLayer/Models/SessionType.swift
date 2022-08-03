@@ -5,7 +5,7 @@
 //  Created by Lukáš Růžička on 30.07.2022.
 //
 
-enum SessionType {
+public enum SessionType {
 
     case practice
     case qualifying

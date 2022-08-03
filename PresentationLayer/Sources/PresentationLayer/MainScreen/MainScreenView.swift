@@ -15,17 +15,21 @@ public struct MainScreenView: View {
     public var body: some View {
         NavigationView {
             ScrollView {
-                VStack {
-                    Text("This is main screen")
-                        .font(.title)
-                        .padding()
+                VStack(spacing: 24) {
+                    ForEach(viewModel.comingEvents, id: \.self) {
+                        EventOverview(event: $0)
+                    }
                 }
+                .padding()
             }
             .navigationTitle("Main screen")
             .toolbar {
                 NavigationLink("Adjust series") {
                     Resolver.resolve(SeriesListView.self)
                 }
+            }
+            .onAppear {
+                viewModel.loadData()
             }
         }
     }

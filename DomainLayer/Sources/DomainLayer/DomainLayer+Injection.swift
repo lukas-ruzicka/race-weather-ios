@@ -11,5 +11,6 @@ extension Resolver {
 
     public static func registerDomainLayer() {
         register(GetWeatherForSerie.self) { (_, args) in GetWeatherForSerieImpl(serie: args.get()) }
+        register(GetComingSessions.self) { GetComingSessionsImpl() }
     }
 }

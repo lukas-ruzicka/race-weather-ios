@@ -7,26 +7,36 @@
 
 import CoreLocation
 
-struct Event {
+public struct Event {
 
-    let id: String
-    let name: String
-    let location: CLLocationCoordinate2D
-    let sessions: [Session]
+    public let serie: Serie
+    public let id: String
+    public let name: String
+    public let location: CLLocationCoordinate2D
+    public let sessions: [Session]
+
+    public init(serie: Serie, id: String, name: String, location: CLLocationCoordinate2D, sessions: [Session]) {
+        self.serie = serie
+        self.id = id
+        self.name = name
+        self.location = location
+        self.sessions = sessions
+    }
 }
 
 // MARK: - Equatable
 extension Event: Equatable {
 
-    static func == (lhs: Event, rhs: Event) -> Bool {
-        lhs.id == rhs.id
+    public static func == (lhs: Event, rhs: Event) -> Bool {
+        lhs.serie == rhs.serie && lhs.id == rhs.id
     }
 }
 
 // MARK: - Hashable
 extension Event: Hashable {
 
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(serie)
         hasher.combine(id)
     }
 }

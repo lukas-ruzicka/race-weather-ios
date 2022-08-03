@@ -8,7 +8,7 @@
 import CoreLocation
 import Foundation
 
-protocol WeatherRepository {
+public protocol WeatherRepository {
 
     func get(for location: CLLocationCoordinate2D, at date: Date) async throws -> Weather
 }

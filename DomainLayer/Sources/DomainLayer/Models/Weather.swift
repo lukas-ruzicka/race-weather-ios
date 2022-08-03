@@ -7,9 +7,15 @@
 
 import Foundation
 
-struct Weather {
+public struct Weather {
 
-    let type: WeatherType
-    let temperature: UnitTemperature
-    let chanceOfRain: Double
+    public let type: WeatherType
+    public let temperature: Double
+    public let chanceOfRain: Double
+
+    public init(type: WeatherType, temperature: Double, chanceOfRain: Double) {
+        self.type = type
+        self.temperature = temperature
+        self.chanceOfRain = chanceOfRain
+    }
 }
