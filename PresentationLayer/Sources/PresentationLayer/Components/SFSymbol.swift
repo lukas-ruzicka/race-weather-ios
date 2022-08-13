@@ -7,14 +7,16 @@
 
 import SwiftUI
 
-enum SFSymbol: String, CaseIterable, View {
+public enum SFSymbol: String, CaseIterable, View {
 
     case sun = "sun.max"
     case cloudSun = "cloud.sun"
     case cloud
     case rain = "cloud.rain"
+    case stopwatch
+    case list = "list.bullet"
 
-    var body: some View {
+    public var body: some View {
         Image(systemName: rawValue)
     }
 }

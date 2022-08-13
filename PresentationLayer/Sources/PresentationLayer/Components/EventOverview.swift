@@ -29,7 +29,10 @@ struct EventOverview: View {
                 Text(event.name)
                     .font(.title2)
                 Spacer()
-                Text(event.serie.rawValue)
+                event.serie.icon
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 48, height: 24)
             }
             Divider()
             Grid {
@@ -55,9 +58,6 @@ struct EventOverview: View {
         }
         .padding()
         .frame(maxWidth: .infinity)
-        .background()
-        .cornerRadius(16)
-        .shadow(radius: 8)
     }
 }
 

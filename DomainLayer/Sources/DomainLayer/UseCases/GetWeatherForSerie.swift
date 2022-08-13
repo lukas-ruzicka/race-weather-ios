@@ -7,7 +7,7 @@
 
 import Utils
 
-protocol GetWeatherForSerie {
+public protocol GetWeatherForSerie {
 
     func use() async throws -> [Event]
 }

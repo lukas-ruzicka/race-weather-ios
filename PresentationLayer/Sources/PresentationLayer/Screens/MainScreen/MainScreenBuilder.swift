@@ -9,6 +9,6 @@ public enum MainScreenBuilder {
 
     public static func build() -> MainScreenView {
         let viewModel = MainScreenViewModel()
-        return MainScreenView(viewModel: viewModel)
+        return .init(viewModel: viewModel)
     }
 }

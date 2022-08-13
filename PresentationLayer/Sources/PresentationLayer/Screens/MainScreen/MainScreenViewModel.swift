@@ -18,7 +18,8 @@ final class MainScreenViewModel: ObservableObject {
     @Injected private var getComingSessions: GetComingSessions
 
     // MARK: - Interactions
-    func loadData() {
+    func onAppear() {
+        // TODO: - Handle loading
         Task {
             comingEvents = try await getComingSessions.use()
                 .sorted(by: { $0.mainDate ?? .init() < $1.mainDate ?? .init() })

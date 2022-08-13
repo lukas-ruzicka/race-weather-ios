@@ -1,5 +1,5 @@
 //
-//  SeriesListViewModel.swift
+//  SeriesSettingsViewModel.swift
 //  
 //
 //  Created by Lukáš Růžička on 30.07.2022.
@@ -7,10 +7,9 @@
 
 import Combine
 import DomainLayer
-import SwiftUI
 import Utils
 
-final class SeriesListViewModel: ObservableObject {
+final class SeriesSettingsViewModel: ObservableObject {
 
     // MARK: - Subtypes
     class SerieItem {

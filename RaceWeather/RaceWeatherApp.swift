@@ -14,7 +14,23 @@ struct RaceWeatherApp: App {
 
     var body: some Scene {
         WindowGroup {
-            Resolver.resolve(MainScreenView.self)
+            TabView {
+                NavigationView {
+                    Resolver.resolve(MainScreenView.self)
+                }
+                .tabItem {
+                    SFSymbol.stopwatch
+                    Text("Coming")
+                }
+
+                NavigationView {
+                    Resolver.resolve(SeriesListView.self)
+                }
+                .tabItem {
+                    SFSymbol.list
+                    Text("Series")
+                }
+            }
         }
     }
 }

@@ -11,6 +11,10 @@ extension Resolver {
 
     public static func registerPresentationLayer() {
         register { MainScreenBuilder.build() }
+        register { SeriesSettingsBuilder.build() }
         register { SeriesListBuilder.build() }
+        register { (_, args) in SerieDetailBuilder.build(serie: args.get()) }
+        register { (_, args) in EventDetailBuilder.build(event: args.get()) }
+        register { (_, args) in SessionDetailBuilder.build(session: args.get()) }
     }
 }
