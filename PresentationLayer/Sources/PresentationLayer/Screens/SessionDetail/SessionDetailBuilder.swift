@@ -9,8 +9,8 @@ import DomainLayer
 
 public enum SessionDetailBuilder {
 
-    public static func build(session: Session) -> SessionDetailView {
-        let viewModel = SessionDetailViewModel(session: session)
+    public static func build(sessionDetail: SessionDetail) -> SessionDetailView {
+        let viewModel = SessionDetailViewModel(sessionDetail: sessionDetail)
         return .init(viewModel: viewModel)
     }
 }

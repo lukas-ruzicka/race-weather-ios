@@ -13,16 +13,30 @@ import Utils
 final class MainScreenViewModel: ObservableObject {
 
     // MARK: - Properties
-    @Published var comingEvents: [Event] = []
+    @Published var comingEventsWithForecast: [EventWithForecast] = []
+    @Published var loadingProgress: Double? = nil
 
-    @Injected private var getComingSessions: GetComingSessions
+    @Injected private var getComingSessions: GetComingEvents
+    @Injected private var getForecastForEvent: GetForecastForEvent
 
     // MARK: - Interactions
     func onAppear() {
-        // TODO: - Handle loading
         Task {
-            comingEvents = try await getComingSessions.use()
+            loadingProgress = 0
+            let comingEvents = try await getComingSessions.use()
                 .sorted(by: { $0.mainDate ?? .init() < $1.mainDate ?? .init() })
+            let loadingProgressStep = 1 / Double(comingEvents.count + 1)
+            loadingProgress = loadingProgressStep
+            for event in comingEvents {
+                let freshEventWithForecast = try await getForecastForEvent.use(event: event)
+                if let index = comingEventsWithForecast.firstIndex(where: { $0.event.id == event.id }) {
+                    comingEventsWithForecast[index] = freshEventWithForecast
+                } else {
+                    comingEventsWithForecast.append(freshEventWithForecast)
+                }
+                loadingProgress? += loadingProgressStep
+            }
+            loadingProgress = nil
         }
     }
 }

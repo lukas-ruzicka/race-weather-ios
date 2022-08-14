@@ -13,7 +13,8 @@ public struct MainScreenView: View {
     @ObservedObject var viewModel: MainScreenViewModel
 
     public var body: some View {
-        EventsList(events: viewModel.comingEvents, showSerieSectionTitle: true)
+        EventsList(eventsWithForecast: viewModel.comingEventsWithForecast, showSerieSectionTitle: true)
+            .showLoadingProgress(progress: viewModel.loadingProgress)
             .navigationTitle("Main screen")
             .toolbar {
                 NavigationLink("Adjust series") {

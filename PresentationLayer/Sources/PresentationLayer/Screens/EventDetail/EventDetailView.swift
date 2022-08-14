@@ -5,6 +5,7 @@
 //  Created by Lukáš Růžička on 13.08.2022.
 //
 
+import DomainLayer
 import SwiftUI
 import Utils
 
@@ -14,19 +15,25 @@ public struct EventDetailView: View {
 
     public var body: some View {
         List {
+            Section {
+                Text(viewModel.eventWithForecast.event.start.formatted(.dateTime.day().month())
+                     + " - "
+                     + viewModel.eventWithForecast.event.end.formatted(.dateTime.day().month()))
+            }
             Section("Sessions") {
-                ForEach(viewModel.event.sessions, id: \.self) { session in
+                ForEach(viewModel.eventWithForecast.event.sessions, id: \.self) { session in
                     NavigationLink {
-                        Resolver.resolve(SessionDetailView.self, args: session)
+                        Resolver.resolve(SessionDetailView.self, args: viewModel.getSessionDetail(for: session))
                     } label: {
-                        HStack(spacing: 8) {
+                        HStack {
                             Text(session.name)
-                            Spacer()
-                            if let weather = session.weather {
-                                weather.type.icon
-                                Text("\(weather.temperature.formatted())°")
-                                Text("\(weather.chanceOfRain.formatted())%")
-                                    .padding(.trailing)
+                            if session.isFinished {
+                                SFSymbol.chequeredFlag
+                                    .foregroundColor(.gray)
+                                Spacer()
+                            } else {
+                                Spacer()
+                                weatherIcon(for: session)
                             }
                         }
                         .padding(.vertical, 4)
@@ -35,14 +42,36 @@ public struct EventDetailView: View {
                 }
             }
         }
-        .navigationTitle(viewModel.event.name)
+        .navigationTitle(viewModel.eventWithForecast.event.name)
         .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+// MARK: - Subviews
+private extension EventDetailView {
+
+    @ViewBuilder
+    func weatherIcon(for session: Session) -> some View {
+        if let sessionForecast = viewModel.eventWithForecast.sessionDetails?.first(where: { $0.id == session.id })?.forecast {
+            ForEach(sessionForecast.map(\.weather), id: \.self) {
+                $0.icon
+            }
+        } else if let dailyForecast = viewModel.eventWithForecast.dailyForecast,
+                    let sessionDayForecast = dailyForecast.first(where: { Calendar.current.isDate($0.date, inSameDayAs: session.dateRange.lowerBound) }) {
+            sessionDayForecast.weather.icon
+            
+        }
     }
 }
 
 struct EventDetailView_Previews: PreviewProvider {
 
     static var previews: some View {
-        EventDetailView(viewModel: .init(event: .mockFormula1EventWithWeather))
+        EventDetailView(viewModel: .init(eventWithForecast: .mockDetailed))
+            .previewDisplayName("Detailed")
+        EventDetailView(viewModel: .init(eventWithForecast: .mockDaily))
+            .previewDisplayName("Daily forecast")
+        EventDetailView(viewModel: .init(eventWithForecast: .mockNoForecast))
+            .previewDisplayName("No forecast")
     }
 }

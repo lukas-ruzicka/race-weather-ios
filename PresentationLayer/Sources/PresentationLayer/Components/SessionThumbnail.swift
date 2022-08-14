@@ -10,26 +10,43 @@ import SwiftUI
 
 struct SessionThumbnail: View {
 
-    let session: Session
+    let sessionDetail: SessionDetail
+    var showSessionName = true
+    private var weather: [Weather] { sessionDetail.forecast?.map(\.weather) ?? [] }
 
     var body: some View {
-        switch session.type {
-        case .practice:
+        VStack(spacing: 16) {
             HStack {
-                Text(session.name)
-                session.weather?.type.icon
-            }
-        case .qualifying, .race:
-            HStack(spacing: 32) {
-                VStack {
-                    Text(session.name)
-                    session.weather?.type.icon
+                if showSessionName {
+                    Text(sessionDetail.name)
+                        .font(.headline)
+                    Spacer()
                 }
-                if let weather = session.weather {
-                    VStack {
-                        Text("\(weather.temperature.formatted())°")
-                        Text("\(weather.chanceOfRain.formatted())%")
+                ForEach(weather, id: \.self) {
+                    $0.icon
+                        .font(showSessionName ? .body : .title)
+                }
+            }
+            ForEach(weather, id: \.self) { weather in
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("Temp: " + weather.temperature.formatted())
+                        if let humidity = weather.humidity {
+                            Text("Humid: \((humidity * 100).formatted())%")
+                        }
+                        if let cloudCover = weather.cloudCover {
+                            Text("Cloud: \((cloudCover * 100).formatted())%")
+                        }
                     }
+                    .font(.footnote)
+                    Spacer()
+                    WindView(wind: weather.wind)
+                    Spacer()
+                    RainView(rain: weather.rain)
+                }
+                if weather != self.weather.last {
+                    Divider()
+                        .blur(radius: 1)
                 }
             }
         }
@@ -41,9 +58,9 @@ struct SessionThumbnail_Previews: PreviewProvider {
     @ViewBuilder
     static var previews: some View {
         VStack(spacing: 24) {
-            SessionThumbnail(session: .mockFP1)
-            SessionThumbnail(session: .mockQualifying)
-            SessionThumbnail(session: .mockRace)
+            SessionThumbnail(sessionDetail: .mockFP1)
+            SessionThumbnail(sessionDetail: .mockQualifying)
+            SessionThumbnail(sessionDetail: .mockRace)
         }
     }
 }

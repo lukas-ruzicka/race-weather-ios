@@ -12,10 +12,15 @@ import Utils
 final class EventDetailViewModel: ObservableObject {
 
     // MARK: - Properties
-    let event: Event
+    let eventWithForecast: EventWithForecast
 
     // MARK: - Init
-    init(event: Event) {
-        self.event = event
+    init(eventWithForecast: EventWithForecast) {
+        self.eventWithForecast = eventWithForecast
+    }
+
+    // MARK: - Interactions
+    func getSessionDetail(for session: Session) -> SessionDetail {
+        eventWithForecast.sessionDetails?.first(where: { $0.id == session.id }) ?? .init(from: eventWithForecast, session: session)
     }
 }

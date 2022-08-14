@@ -11,27 +11,28 @@ import Utils
 
 struct EventsList: View {
 
-    let events: [Event]
+    let eventsWithForecast: [EventWithForecast]
     var showSerieSectionTitle = false
 
     var body: some View {
         List {
-            ForEach(events, id: \.self) { event in
-                Section(showSerieSectionTitle ? event.serie.name : "") {
+            ForEach(eventsWithForecast, id: \.self) { eventWithForecast in
+                Section(showSerieSectionTitle ? eventWithForecast.event.serie.name : "") {
                     NavigationLink {
-                        Resolver.resolve(EventDetailView.self, args: event)
+                        Resolver.resolve(EventDetailView.self, args: eventWithForecast)
                     } label: {
-                        EventOverview(event: event)
+                        EventOverview(eventWithForecast: eventWithForecast)
                     }
                 }
             }
         }
+        .animation(.default, value: eventsWithForecast)
     }
 }
 
 struct EventsList_Previews: PreviewProvider {
 
     static var previews: some View {
-        EventsList(events: Event.mockFormula1Events)
+        EventsList(eventsWithForecast: [.mockDetailed, .mockDaily, .mockNoForecast])
     }
 }

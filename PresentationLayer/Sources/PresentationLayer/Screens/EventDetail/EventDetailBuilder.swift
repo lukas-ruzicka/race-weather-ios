@@ -9,8 +9,8 @@ import DomainLayer
 
 public enum EventDetailBuilder {
 
-    public static func build(event: Event) -> EventDetailView {
-        let viewModel = EventDetailViewModel(event: event)
+    public static func build(eventWithForecast: EventWithForecast) -> EventDetailView {
+        let viewModel = EventDetailViewModel(eventWithForecast: eventWithForecast)
         return .init(viewModel: viewModel)
     }
 }

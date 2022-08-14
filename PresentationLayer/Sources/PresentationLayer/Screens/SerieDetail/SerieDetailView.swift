@@ -12,7 +12,8 @@ public struct SerieDetailView: View {
     @ObservedObject var viewModel: SerieDetailViewModel
 
     public var body: some View {
-        EventsList(events: viewModel.events)
+        EventsList(eventsWithForecast: viewModel.eventsWithForecast)
+            .showLoadingProgress(progress: viewModel.loadingProgress)
             .navigationTitle(viewModel.serie.name)
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {

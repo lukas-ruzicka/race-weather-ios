@@ -10,5 +10,9 @@ import Foundation
 
 public protocol WeatherRepository {
 
-    func get(for location: CLLocationCoordinate2D, at date: Date) async throws -> Weather
+    func getAvailableDetailLevel(for dateRange: ClosedRange<Date>) async throws -> WeatherDetailLevel?
+
+    func getDailyForecast(for location: CLLocation, at dateRange: ClosedRange<Date>) async throws -> [Forecast]
+    func getHourlyForecast(for location: CLLocation, at dateRange: ClosedRange<Date>) async throws -> [Forecast]
+    func getRainDetail(for location: CLLocation, at dateRange: ClosedRange<Date>) async throws -> [RainDetail]
 }

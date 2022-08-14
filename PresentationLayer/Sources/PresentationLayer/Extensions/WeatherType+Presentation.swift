@@ -13,14 +13,20 @@ extension WeatherType {
     @ViewBuilder
     var icon: some View {
         switch self {
-        case .sunny:
+        case .clear:
             SFSymbol.sun
         case .overcast:
             SFSymbol.cloudSun
         case .cloudy:
             SFSymbol.cloud
-        case .raining:
+        case .drizzle:
+            SFSymbol.drizzle
+        case .rain:
             SFSymbol.rain
+        case .heavyRain:
+            SFSymbol.heavyRain
+        case .other:
+            SFSymbol.unknown
         }
     }
 }

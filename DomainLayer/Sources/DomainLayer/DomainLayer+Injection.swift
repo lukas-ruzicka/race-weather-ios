@@ -10,7 +10,8 @@ import Utils
 extension Resolver {
 
     public static func registerDomainLayer() {
-        register(GetWeatherForSerie.self) { (_, args) in GetWeatherForSerieImpl(serie: args.get()) }
-        register(GetComingSessions.self) { GetComingSessionsImpl() }
+        register(GetComingEvents.self) { GetComingEventsImpl() }
+        register(GetSessionDetailsForEvent.self) { GetSessionDetailsForEventImpl() }
+        register(GetForecastForEvent.self) { GetForecastForEventImpl() }
     }
 }

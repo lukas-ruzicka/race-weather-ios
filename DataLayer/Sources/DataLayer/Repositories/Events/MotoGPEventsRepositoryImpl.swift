@@ -13,10 +13,12 @@ final actor MotoGPEventsRepositoryImpl {}
 extension MotoGPEventsRepositoryImpl: EventsRepository {
 
     func getAll() async throws -> [Event] {
-        Event.mockMotoGPEvents
+        try await Task.sleep(nanoseconds: 300_000_000)
+        return Event.mockMotoGPEvents
     }
 
     func getComing() async throws -> Event {
-        Event.mockMotoGPEvents.last!
+        try await Task.sleep(nanoseconds: 300_000_000)
+        return Event.mockMotoGPEvents.last!
     }
 }

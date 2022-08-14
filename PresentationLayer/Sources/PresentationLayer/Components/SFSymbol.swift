@@ -9,14 +9,22 @@ import SwiftUI
 
 public enum SFSymbol: String, CaseIterable, View {
 
+    // Weather
     case sun = "sun.max"
     case cloudSun = "cloud.sun"
     case cloud
+    case drizzle = "cloud.drizzle"
     case rain = "cloud.rain"
+    case heavyRain = "cloud.heavyrain"
+
+    // Other
     case stopwatch
     case list = "list.bullet"
+    case arrowUp = "arrow.up"
+    case chequeredFlag = "checkerboard.rectangle"
+    case unknown = "questionmark.app.dashed"
 
-    public var body: some View {
+    public var body: Image {
         Image(systemName: rawValue)
     }
 }

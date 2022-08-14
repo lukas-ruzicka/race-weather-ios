@@ -14,7 +14,7 @@ extension Resolver {
         register { SeriesSettingsBuilder.build() }
         register { SeriesListBuilder.build() }
         register { (_, args) in SerieDetailBuilder.build(serie: args.get()) }
-        register { (_, args) in EventDetailBuilder.build(event: args.get()) }
-        register { (_, args) in SessionDetailBuilder.build(session: args.get()) }
+        register { (_, args) in EventDetailBuilder.build(eventWithForecast: args.get()) }
+        register { (_, args) in SessionDetailBuilder.build(sessionDetail: args.get()) }
     }
 }
