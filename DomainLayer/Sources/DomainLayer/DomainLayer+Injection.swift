@@ -2,7 +2,7 @@
 //  DomainLayer+Injection.swift
 //
 //
-//  Created by Lukáš Růžička on 30.07.2022.
+//  Created by Lukas Ruzicka on 30.07.2022.
 //
 
 import Utils

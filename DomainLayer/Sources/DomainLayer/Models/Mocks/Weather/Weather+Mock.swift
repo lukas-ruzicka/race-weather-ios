@@ -2,7 +2,7 @@
 //  Weather+Mock.swift
 //  
 //
-//  Created by Lukáš Růžička on 13.08.2022.
+//  Created by Lukas Ruzicka on 13.08.2022.
 //
 
 public extension Weather {

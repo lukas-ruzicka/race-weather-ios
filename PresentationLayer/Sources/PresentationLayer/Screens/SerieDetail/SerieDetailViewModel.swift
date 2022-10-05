@@ -2,7 +2,7 @@
 //  SerieDetailViewModel.swift
 //  
 //
-//  Created by Lukáš Růžička on 13.08.2022.
+//  Created by Lukas Ruzicka on 13.08.2022.
 //
 
 import Combine
@@ -13,13 +13,13 @@ import Utils
 final class SerieDetailViewModel: ObservableObject {
 
     // MARK: - Properties
-    @Published var eventsWithForecast: [EventWithForecast] = []
-    @Published var loadingProgress: Double? = nil
+    @Published var events: [Event]?
+    @Published var isLoading = false
+    @Published var error: Error?
 
     let serie: Serie
 
     private let eventsRepository: EventsRepository
-    @Injected private var getForecastForEvent: GetForecastForEvent
 
     // MARK: - Init
     init(serie: Serie) {
@@ -30,20 +30,14 @@ final class SerieDetailViewModel: ObservableObject {
     // MARK: - Interactions
     func onAppear() {
         Task {
-            loadingProgress = 0
-            let events = try await eventsRepository.getAll()
-            let loadingProgressStep = 1 / Double(events.count + 1)
-            loadingProgress = loadingProgressStep
-            for event in events {
-                let freshEventWithForecast = try await getForecastForEvent.use(event: event)
-                if let index = eventsWithForecast.firstIndex(where: { $0.event.id == event.id }) {
-                    eventsWithForecast[index] = freshEventWithForecast
-                } else {
-                    eventsWithForecast.append(freshEventWithForecast)
-                }
-                loadingProgress? += loadingProgressStep
+            isLoading = true
+            do {
+                events = try await eventsRepository.getAll()
+                    .filter { $0.sessions.contains(where: { !$0.isFinished }) }
+            } catch {
+                self.error = error
             }
-            loadingProgress = nil
+            isLoading = false
         }
     }
 }

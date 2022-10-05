@@ -1,0 +1,16 @@
+strings:
+  inputs:
+    - Resources/en.lproj
+  outputs:
+    templatePath: SwiftGenTemplates/Strings.stencil
+    output: PresentationLayer/Sources/PresentationLayer/Generated/Strings+Generated.swift
+
+xcassets:
+  inputs: 
+    - Resources/Assets.xcassets
+    - Resources/Colors.xcassets
+  outputs:
+    templatePath: SwiftGenTemplates/Assets.stencil
+    params:
+      forceProvidesNamespaces: true
+    output: PresentationLayer/Sources/PresentationLayer/Generated/Assets+Generated.swift

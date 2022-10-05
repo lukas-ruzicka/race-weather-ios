@@ -1,0 +1,70 @@
+// Generated using SwiftGen — https://github.com/SwiftGen/SwiftGen
+{% if catalogs %}
+
+import SwiftUI
+
+// MARK: - Colors
+{% macro enumBlock assets %}
+  {% call casesBlock assets %}
+  {% if param.allValues %}
+
+  static let allColors: [{{colorType}}] = [
+    {% filter indent:2 %}{% call allValuesBlock assets "color" "" %}{% endfilter %}
+  ]
+  {% endif %}
+{% endmacro %}
+{% macro casesBlock assets %}
+  {% for asset in assets %}
+  {% if asset.type == "color" %}
+  static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}} = Color("{{asset.value}}")
+  {% elif asset.items and ( asset.isNamespaced == "true" ) %}
+  enum {{asset.name|swiftIdentifier:"pretty"|escapeReservedKeywords}} {
+    {% filter indent:2 %}{% call casesBlock asset.items %}{% endfilter %}
+  }
+  {% elif asset.items %}
+  {% call casesBlock asset.items %}
+  {% endif %}
+  {% endfor %}
+{% endmacro %}
+
+extension Color {
+
+    {% for catalog in catalogs %}
+    {% filter indent:2 %}{% call enumBlock catalog.assets %}{% endfilter %}
+    {% endfor %}
+}
+
+// MARK: - Images
+{% macro enumBlock assets %}
+  {% call casesBlock assets %}
+  {% if param.allValues %}
+
+  static let allColors: [{{colorType}}] = [
+    {% filter indent:2 %}{% call allValuesBlock assets "image" "" %}{% endfilter %}
+  ]
+  {% endif %}
+{% endmacro %}
+{% macro casesBlock assets %}
+  {% for asset in assets %}
+  {% if asset.type == "image" %}
+  static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}} = Image("{{asset.value}}")
+  {% elif asset.items and ( asset.isNamespaced == "true" ) %}
+  enum {{asset.name|swiftIdentifier:"pretty"|escapeReservedKeywords}} {
+    {% filter indent:2 %}{% call casesBlock asset.items %}{% endfilter %}
+  }
+  {% elif asset.items %}
+  {% call casesBlock asset.items %}
+  {% endif %}
+  {% endfor %}
+{% endmacro %}
+
+extension Image {
+
+    {% for catalog in catalogs %}
+    {% filter indent:2 %}{% call enumBlock catalog.assets %}{% endfilter %}
+    {% endfor %}
+}
+
+{% else %}
+// No assets found
+{% endif %}

@@ -2,9 +2,10 @@
 //  RaceWeatherApp.swift
 //  RaceWeather
 //
-//  Created by Lukáš Růžička on 30.07.2022.
+//  Created by Lukas Ruzicka on 30.07.2022.
 //
 
+import DomainLayer
 import PresentationLayer
 import SwiftUI
 import Utils
@@ -14,23 +15,30 @@ struct RaceWeatherApp: App {
 
     var body: some Scene {
         WindowGroup {
-            TabView {
-                NavigationView {
-                    Resolver.resolve(MainScreenView.self)
+            if Resolver.resolve(SeriesRepository.self).getAvailable().count > 1 {
+                TabView {
+                    mainScreen
+                    .tabItem {
+                        SFSymbol.stopwatch
+                        ComingScreenView.title
+                    }
+                    NavigationView {
+                        Resolver.resolve(SeriesListView.self)
+                    }
+                    .tabItem {
+                        SFSymbol.list
+                        SeriesListView.title
+                    }
                 }
-                .tabItem {
-                    SFSymbol.stopwatch
-                    Text("Coming")
-                }
-
-                NavigationView {
-                    Resolver.resolve(SeriesListView.self)
-                }
-                .tabItem {
-                    SFSymbol.list
-                    Text("Series")
-                }
+            } else {
+                mainScreen
             }
+        }
+    }
+
+    private var mainScreen: some View {
+        NavigationView {
+            Resolver.resolve(ComingScreenView.self)
         }
     }
 }

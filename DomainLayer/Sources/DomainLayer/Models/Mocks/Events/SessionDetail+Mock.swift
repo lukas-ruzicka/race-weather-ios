@@ -2,7 +2,7 @@
 //  SessionDetail+Mock.swift
 //  
 //
-//  Created by Lukáš Růžička on 14.08.2022.
+//  Created by Lukas Ruzicka on 14.08.2022.
 //
 
 public extension SessionDetail {
@@ -10,7 +10,7 @@ public extension SessionDetail {
     static var mockFP1: SessionDetail {
         .init(id: Session.mockFP1.id,
               event: .mockFormula1BelgianGP,
-              name: Session.mockFP1.name,
+              type: Session.mockFP1.type,
               dateRange: Session.mockFP1.dateRange,
               forecast: [.init(date: Session.mockFP1.dateRange.lowerBound, weather: .mockOvercast)])
     }
@@ -18,7 +18,7 @@ public extension SessionDetail {
     static var mockFP2: SessionDetail {
         .init(id: Session.mockFP2.id,
               event: .mockFormula1BelgianGP,
-              name: Session.mockFP2.name,
+              type: Session.mockFP2.type,
               dateRange: Session.mockFP2.dateRange,
               forecast: [.init(date: Session.mockFP2.dateRange.lowerBound, weather: .mockSunny)])
     }
@@ -26,7 +26,7 @@ public extension SessionDetail {
     static var mockFP3: SessionDetail {
         .init(id: Session.mockFP3.id,
               event: .mockFormula1BelgianGP,
-              name: Session.mockFP3.name,
+              type: Session.mockFP3.type,
               dateRange: Session.mockFP3.dateRange,
               forecast: [.init(date: Session.mockFP3.dateRange.lowerBound, weather: .mockHeavyRain)])
     }
@@ -34,7 +34,7 @@ public extension SessionDetail {
     static var mockQualifying: SessionDetail {
         .init(id: Session.mockQualifying.id,
               event: .mockFormula1BelgianGP,
-              name: Session.mockQualifying.name,
+              type: Session.mockQualifying.type,
               dateRange: Session.mockQualifying.dateRange,
               forecast: [.init(date: Session.mockQualifying.dateRange.lowerBound, weather: .mockLightRain)])
     }
@@ -42,7 +42,7 @@ public extension SessionDetail {
     static var mockRace: SessionDetail {
         .init(id: Session.mockRace.id,
               event: .mockFormula1BelgianGP,
-              name: Session.mockRace.name,
+              type: Session.mockRace.type,
               dateRange: Session.mockRace.dateRange,
               forecast: [
                 .init(date: Session.mockRace.dateRange.lowerBound, weather: .mockRandom),

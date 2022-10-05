@@ -2,13 +2,14 @@
 //  SeriesListViewModel.swift
 //  
 //
-//  Created by Lukáš Růžička on 13.08.2022.
+//  Created by Lukas Ruzicka on 13.08.2022.
 //
 
 import Combine
 import DomainLayer
 import Utils
 
+@MainActor
 final class SeriesListViewModel: ObservableObject {
 
     // MARK: - Properties

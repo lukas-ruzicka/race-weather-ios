@@ -2,7 +2,7 @@
 //  WeatherRepositoryImpl.swift
 //  
 //
-//  Created by Lukáš Růžička on 03.08.2022.
+//  Created by Lukas Ruzicka on 03.08.2022.
 //
 
 import CoreLocation
@@ -13,8 +13,8 @@ final class WeatherRepositoryImpl {}
 // MARK: - Protocol conformance
 extension WeatherRepositoryImpl: WeatherRepository {
 
-    func getAvailableDetailLevel(for dateRange: ClosedRange<Date>) async throws -> WeatherDetailLevel? {
         [.detailed, .hourly, .daily].randomElement()!
+    func getAvailableDetailLevel(for location: CLLocation, at dateRange: ClosedRange<Date>) async throws -> WeatherDetailLevel? {
     }
 
     func getDailyForecast(for location: CLLocation, at dateRange: ClosedRange<Date>) async throws -> [Forecast] {
@@ -31,9 +31,9 @@ extension WeatherRepositoryImpl: WeatherRepository {
     func getHourlyForecast(for location: CLLocation, at dateRange: ClosedRange<Date>) async throws -> [Forecast] {
         try await Task.sleep(nanoseconds: 300_000_000)
         var forecast: [Forecast] = []
-        var currentDayDate = dateRange.lowerBound
+        var currentDayDate = dateRange.lowerBound.addingTimeInterval(-60 * 60)
         repeat {
-            forecast.append(.init(date: currentDayDate, weather: .mockRandom))
+            forecast.append(.init(date: currentDayDate, weather: .mockRandom, doesPrecedeSession: currentDayDate < dateRange.lowerBound))
             currentDayDate = currentDayDate.addingTimeInterval(60 * 60)
         } while currentDayDate < dateRange.upperBound
         return forecast

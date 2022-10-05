@@ -2,7 +2,7 @@
 //  EventWithForecast.swift
 //  
 //
-//  Created by Lukáš Růžička on 14.08.2022.
+//  Created by Lukas Ruzicka on 14.08.2022.
 //
 
 public struct EventWithForecast: Hashable {

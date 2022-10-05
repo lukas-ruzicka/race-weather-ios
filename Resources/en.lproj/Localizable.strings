@@ -1,0 +1,52 @@
+// Screens
+
+"comingScreen.title" = "Coming";
+
+"seriesList.title" = "Series";
+
+"settings.title" = "Settings";
+"settings.adjustSeries" = "Adjust series";
+
+"sessionDetail.finished" = "Session already ended";
+"sessionDetail.rainChance" = "Chance of rain";
+"sessionDetail.rainIntensity" = "Rain intensity";
+
+// Common
+
+"ok" = "OK";
+"retry" = "Retry";
+"error.title" = "Oh no!";
+"error.message" = "Something went wrong";
+"starts" = "Starts";
+"ends" = "Ends";
+"noEvents" = "No events coming 🥲";
+
+"sessions" = "Sessions";
+"session.practice" = "Practice";
+"session.qualifying" = "Qualifying";
+"session.sprint" = "Sprint";
+"session.warmup" = "Warmup";
+"session.race" = "Race";
+
+// Components
+
+"live" = "Live";
+
+"weatherProperty.temperature.short" = "Temp";
+"weatherProperty.humidity.short" = "Humid";
+"weatherProperty.cloudCover.short" = "Cloud";
+"weatherProperty.rainAmount.short" = "Rain";
+"weatherProperty.rainChance.short" = "Chance";
+"weatherProperty.windSpeed.short" = "Wind";
+"weatherProperty.gust" = "Gust";
+
+"chart.time" = "Time";
+"chart.intensity" = "Intensity";
+"chart.chance" = "Chance";
+
+"forecast.notYet" = "No forecast yet 🤷🏽‍♂️";
+
+// Series
+
+"serie.formula1" = "Formula 1";
+"serie.motoGp" = "MotoGP";

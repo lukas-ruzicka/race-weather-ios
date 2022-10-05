@@ -2,7 +2,7 @@
 //  LoadingProgress.swift
 //  
 //
-//  Created by Lukáš Růžička on 28.08.2022.
+//  Created by Lukas Ruzicka on 28.08.2022.
 //
 
 import SwiftUI

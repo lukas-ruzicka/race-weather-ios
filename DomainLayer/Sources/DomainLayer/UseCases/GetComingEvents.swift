@@ -2,7 +2,7 @@
 //  GetComingEvents.swift
 //  
 //
-//  Created by Lukáš Růžička on 03.08.2022.
+//  Created by Lukas Ruzicka on 03.08.2022.
 //
 
 import Utils
@@ -24,7 +24,9 @@ extension GetComingEventsImpl: GetComingEvents {
     func use() async throws -> [Event] {
         var comingEvents: [Event] = []
         for eventsRepository in eventsRepositories {
-            comingEvents.append(try await eventsRepository.getComing())
+            if let event = try? await eventsRepository.getComing() {
+                comingEvents.append(event)
+            }
         }
         return comingEvents
     }

@@ -2,14 +2,14 @@
 //  GetWeatherForEvent.swift
 //  
 //
-//  Created by Lukáš Růžička on 14.08.2022.
+//  Created by Lukas Ruzicka on 14.08.2022.
 //
 
 import Utils
 
 public protocol GetForecastForEvent {
 
-    func use(event: Event) async throws -> EventWithForecast
+    func use(event: Event) async throws -> EventWithForecast?
 }
 
 final class GetForecastForEventImpl {
@@ -22,8 +22,8 @@ final class GetForecastForEventImpl {
 // MARK: - Protocol conformance
 extension GetForecastForEventImpl: GetForecastForEvent {
 
-    func use(event: Event) async throws -> EventWithForecast {
-        let detailLevel = try await weatherRepository.getAvailableDetailLevel(for: event.start...event.end)
+    func use(event: Event) async throws -> EventWithForecast? {
+        let detailLevel = try await weatherRepository.getAvailableDetailLevel(for: event.location, at: event.start...event.end)
 
         switch detailLevel {
         case .detailed, .hourly:
@@ -33,7 +33,7 @@ extension GetForecastForEventImpl: GetForecastForEvent {
             let dailyForecast = try await weatherRepository.getDailyForecast(for: event.location, at: event.start...event.end)
             return .init(event: event, dailyForecast: dailyForecast, sessionDetails: nil)
         default:
-            return .init(event: event, dailyForecast: nil, sessionDetails: nil)
+            return nil
         }
     }
 }

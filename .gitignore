@@ -81,3 +81,11 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+
+### OSX ###
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+# Generated files
+PresentationLayer/Sources/PresentationLayer/Generated/

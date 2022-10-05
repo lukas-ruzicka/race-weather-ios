@@ -2,7 +2,7 @@
 //  WeatherType+Presentation.swift
 //  
 //
-//  Created by Lukáš Růžička on 03.08.2022.
+//  Created by Lukas Ruzicka on 03.08.2022.
 //
 
 import DomainLayer

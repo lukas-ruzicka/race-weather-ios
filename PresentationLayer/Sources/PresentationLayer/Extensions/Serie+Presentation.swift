@@ -2,7 +2,7 @@
 //  Serie+Presentation.swift
 //  
 //
-//  Created by Lukáš Růžička on 13.08.2022.
+//  Created by Lukas Ruzicka on 13.08.2022.
 //
 
 import DomainLayer
@@ -13,18 +13,18 @@ extension Serie {
     var name: String {
         switch self {
         case .formula1:
-            return "Formula 1"
+            return L10n.Serie.formula1String
         case .motogp:
-            return "MotoGP"
+            return L10n.Serie.motoGpString
         }
     }
 
     var icon: Image {
         switch self {
         case .formula1:
-            return Image("Series/formula1")
+            return .Series.formula1
         case .motogp:
-            return Image("Series/motoGP")
+            return .Series.motoGP
         }
     }
 }
