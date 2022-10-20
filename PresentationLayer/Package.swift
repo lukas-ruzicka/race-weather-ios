@@ -19,9 +19,6 @@ let package = Package(
     targets: [
         .target(
             name: "PresentationLayer",
-            dependencies: ["Utils", "DomainLayer"]),
-        .testTarget(
-            name: "PresentationLayerTests",
-            dependencies: ["PresentationLayer"]),
+            dependencies: ["Utils", "DomainLayer"])
     ]
 )
