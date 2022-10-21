@@ -6,11 +6,18 @@
 //
 
 import DomainLayer
+import Utils
 
 final class SeriesRepositoryImpl {
 
+    // MARK: - Subtypes
+    struct AvailableSeries: Codable {
+
+        let series: [String]
+    }
+
     // MARK: - Properties
-    private var availableSeries: [Serie] = Serie.allCases
+    @Injected private var keyValueStorage: KeyValueStorage
 }
 
 // MARK: - Protocol conformance
@@ -21,10 +28,12 @@ extension SeriesRepositoryImpl: SeriesRepository {
     }
 
     func getAvailable() -> [Serie] {
-        availableSeries
+        let availableSeries: AvailableSeries? = try? keyValueStorage.get(.availableSeries)
+        return availableSeries?.series.compactMap { .init(rawValue: $0) } ?? getAll()
     }
 
     func setAvailable(_ series: [Serie]) {
-        availableSeries = series
+        let availableSeries = AvailableSeries(series: series.map(\.rawValue))
+        try? keyValueStorage.set(availableSeries, for: .availableSeries)
     }
 }
