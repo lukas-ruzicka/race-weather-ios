@@ -33,6 +33,10 @@ extension Resolver {
 
     private static func registerDataSources() {
         register(KeyValueStorage.self) { UserDefaultsImpl() }
-            .scope(.shared)
+            .scope(.application)
+        register(Networking.self) { URLRequestNetworkingImpl() }
+            .scope(.application)
+        register(RuntimeCache.self) { RuntimeCacheImpl() }
+            .scope(.application)
     }
 }
