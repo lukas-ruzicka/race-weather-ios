@@ -13,6 +13,8 @@ import Utils
 @main
 struct RaceWeatherApp: App {
 
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+
     @ObservedObject private var comingTabRouter = Router(root: Resolver.resolve(ComingScreenView.self))
     @ObservedObject private var seriesTabRouter = Router(root: Resolver.resolve(SeriesListView.self))
 

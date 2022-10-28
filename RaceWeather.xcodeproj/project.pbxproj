@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F17A722290C5BC9004EC583 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F17A721290C5BC9004EC583 /* GoogleService-Info.plist */; };
+		0F17A725290C5C43004EC583 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 0F17A724290C5C43004EC583 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		0F17A727290C5C76004EC583 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F17A726290C5C76004EC583 /* AppDelegate.swift */; };
 		C314962C28FBE0660010BEDC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C314962B28FBE0660010BEDC /* Colors.xcassets */; };
 		C314963028FBEDC70010BEDC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C314963228FBEDC70010BEDC /* Localizable.strings */; };
 		C3193D3028FF2DC3003974E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3193D2F28FF2DC3003974E4 /* LaunchScreen.storyboard */; };
@@ -25,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F17A721290C5BC9004EC583 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0F17A726290C5C76004EC583 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C314962B28FBE0660010BEDC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		C314963128FBEDC70010BEDC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C3193D2F28FF2DC3003974E4 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -45,6 +50,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3B2D5762895250D003FE87B /* DomainLayer in Frameworks */,
+				0F17A725290C5C43004EC583 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				C3B2D5782895250D003FE87B /* PresentationLayer in Frameworks */,
 				C3B2D57A2895250D003FE87B /* Utils in Frameworks */,
 				C3B2D5742895250D003FE87B /* DataLayer in Frameworks */,
@@ -57,6 +63,7 @@
 		C314962D28FBED990010BEDC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0F17A721290C5BC9004EC583 /* GoogleService-Info.plist */,
 				C3B2D5542895161E003FE87B /* Assets.xcassets */,
 				C314962B28FBE0660010BEDC /* Colors.xcassets */,
 				C314963228FBEDC70010BEDC /* Localizable.strings */,
@@ -92,6 +99,7 @@
 			children = (
 				C3B2D5502895161D003FE87B /* RaceWeatherApp.swift */,
 				C3426DF0290BDC5C0006E70B /* Router.swift */,
+				0F17A726290C5C76004EC583 /* AppDelegate.swift */,
 				C3B2D56D289523F7003FE87B /* App+Injection.swift */,
 			);
 			path = RaceWeather;
@@ -114,6 +122,7 @@
 				C3B2D5492895161D003FE87B /* Sources */,
 				C3B2D54A2895161D003FE87B /* Frameworks */,
 				C3B2D54B2895161D003FE87B /* Resources */,
+				0F17A728290C5D8D004EC583 /* Upload dSYMS */,
 			);
 			buildRules = (
 			);
@@ -125,6 +134,7 @@
 				C3B2D5752895250D003FE87B /* DomainLayer */,
 				C3B2D5772895250D003FE87B /* PresentationLayer */,
 				C3B2D5792895250D003FE87B /* Utils */,
+				0F17A724290C5C43004EC583 /* FirebaseAnalyticsWithoutAdIdSupport */,
 			);
 			productName = RaceWeather;
 			productReference = C3B2D54D2895161D003FE87B /* RaceWeather.app */;
@@ -153,6 +163,9 @@
 				en,
 			);
 			mainGroup = C3B2D5442895161D003FE87B;
+			packageReferences = (
+				0F17A723290C5C43004EC583 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = C3B2D54E2895161D003FE87B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -169,6 +182,7 @@
 			files = (
 				C3B2D56328951CEA003FE87B /* DomainLayer in Resources */,
 				C3193D3028FF2DC3003974E4 /* LaunchScreen.storyboard in Resources */,
+				0F17A722290C5BC9004EC583 /* GoogleService-Info.plist in Resources */,
 				C3B2D56128951CEA003FE87B /* PresentationLayer in Resources */,
 				C3B2D56C2895220A003FE87B /* Utils in Resources */,
 				C314963028FBEDC70010BEDC /* Localizable.strings in Resources */,
@@ -180,11 +194,36 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0F17A728290C5D8D004EC583 /* Upload dSYMS */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "Upload dSYMS";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C3B2D5492895161D003FE87B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F17A727290C5C76004EC583 /* AppDelegate.swift in Sources */,
 				C3B2D56E289523F7003FE87B /* App+Injection.swift in Sources */,
 				C3B2D5512895161D003FE87B /* RaceWeatherApp.swift in Sources */,
 				C3426DF1290BDC5C0006E70B /* Router.swift in Sources */,
@@ -328,6 +367,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = accent;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 8868RWK6YB;
 				ENABLE_PREVIEWS = YES;
@@ -344,7 +384,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = cz.ruzicku.RaceWeather;
+				PRODUCT_BUNDLE_IDENTIFIER = io.ruzicka.RaceWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -375,7 +415,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = cz.ruzicku.RaceWeather;
+				PRODUCT_BUNDLE_IDENTIFIER = io.ruzicka.RaceWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -406,7 +446,23 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		0F17A723290C5C43004EC583 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		0F17A724290C5C43004EC583 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F17A723290C5C43004EC583 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
 		C3B2D5732895250D003FE87B /* DataLayer */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DataLayer;
