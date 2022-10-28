@@ -18,4 +18,6 @@ protocol RuntimeCache {
 enum RuntimeCacheKey: String {
 
     case formula1Events
+    case motogpComingEvent
+    case motogpEvents
 }
