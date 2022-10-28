@@ -48,9 +48,7 @@ public struct SerieDetailView: View {
 private extension SerieDetailView {
 
     func eventRow(_ event: Event) -> some View {
-        NavigationLink {
-            Resolver.resolve(EventDetailView.self, args: event)
-        } label: {
+        NavigationLink(value: NavigationDestination.eventDetail(event: event)) {
             HStack {
                 event.flagImage
                 Text(event.name)

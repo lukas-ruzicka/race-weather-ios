@@ -13,32 +13,39 @@ import Utils
 @main
 struct RaceWeatherApp: App {
 
+    @ObservedObject private var comingTabRouter = Router(root: Resolver.resolve(ComingScreenView.self))
+    @ObservedObject private var seriesTabRouter = Router(root: Resolver.resolve(SeriesListView.self))
+
     var body: some Scene {
         WindowGroup {
-            if Resolver.resolve(SeriesRepository.self).getAvailable().count > 1 {
-                TabView {
-                    mainScreen
-                    .tabItem {
-                        SFSymbol.stopwatch
-                        ComingScreenView.title
-                    }
-                    NavigationView {
-                        Resolver.resolve(SeriesListView.self)
-                    }
-                    .tabItem {
-                        SFSymbol.list
-                        SeriesListView.title
-                    }
-                }
-            } else {
-                mainScreen
+            TabView {
+                tab(router: comingTabRouter,
+                    path: $comingTabRouter.path,
+                    symbol: .stopwatch,
+                    title: ComingScreenView.title)
+                tab(router: seriesTabRouter,
+                    path: $seriesTabRouter.path,
+                    symbol: .list,
+                    title: SeriesListView.title)
             }
         }
     }
+}
 
-    private var mainScreen: some View {
-        NavigationView {
-            Resolver.resolve(ComingScreenView.self)
+// MARK: - Subviews
+private extension RaceWeatherApp {
+
+    func tab(router: Router, path: Binding<[NavigationDestination]>,
+             symbol: SFSymbol, title: Text) -> some View {
+        NavigationStack(path: path) {
+            router.root
+                .navigationDestination(for: NavigationDestination.self) {
+                    router.destination(for: $0)
+                }
+        }
+        .tabItem {
+            symbol
+            title
         }
     }
 }

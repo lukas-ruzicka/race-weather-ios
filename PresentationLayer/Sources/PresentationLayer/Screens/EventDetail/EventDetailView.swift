@@ -78,9 +78,7 @@ private extension EventDetailView {
     }
 
     func sessionRow(_ session: Session) -> some View {
-        NavigationLink {
-            Resolver.resolve(SessionDetailView.self, args: viewModel.getSessionDetail(for: session))
-        } label: {
+        NavigationLink(value: NavigationDestination.sessionDetail(sessionDetail: viewModel.getSessionDetail(for: session))) {
             HStack {
                 session.type.name
                 Spacer()

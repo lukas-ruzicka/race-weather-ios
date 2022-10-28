@@ -69,9 +69,7 @@ private extension ComingScreenView {
     @ViewBuilder
     var liveSessions: some View {
         ForEach(viewModel.liveSessions, id: \.self) { liveSession in
-            NavigationLink {
-                Resolver.resolve(SessionDetailView.self, args: liveSession.sessionDetail)
-            } label: {
+            NavigationLink(value: NavigationDestination.sessionDetail(sessionDetail: liveSession.sessionDetail)) {
                 LiveSessionThumbnail(data: liveSession)
             }
             .padding([.horizontal, .top], padding)
@@ -84,9 +82,7 @@ private extension ComingScreenView {
 
     var comingEvents: some View {
         ForEach(viewModel.comingEventsWithForecast ?? [], id: \.self) { eventWithForecast in
-            NavigationLink {
-                Resolver.resolve(EventDetailView.self, args: eventWithForecast.event)
-            } label: {
+            NavigationLink(value: NavigationDestination.eventDetail(event: eventWithForecast.event)) {
                 EventThumbnail(eventWithForecast: eventWithForecast)
             }
             .padding([.horizontal, .top], padding)
@@ -107,9 +103,7 @@ private extension ComingScreenView {
     }
 
     var settingsLink: some View {
-        NavigationLink {
-            Resolver.resolve(SettingsView.self)
-        } label: {
+        NavigationLink(value: NavigationDestination.settings) {
             SFSymbol.gear
         }
     }

@@ -36,9 +36,7 @@ public struct SeriesListView: View {
 private extension SeriesListView {
 
     func serieRow(_ serie: Serie) -> some View {
-        NavigationLink {
-            Resolver.resolve(SerieDetailView.self, args: serie)
-        } label: {
+        NavigationLink(value: NavigationDestination.serieDetail(serie: serie)) {
             HStack(spacing: 16) {
                 serie.icon
                     .resizable()
