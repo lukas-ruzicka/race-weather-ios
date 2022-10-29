@@ -1,0 +1,52 @@
+// Screens
+
+"comingScreen.title" = "Nadcházející";
+
+"seriesList.title" = "Série";
+
+"settings.title" = "Nastavení";
+"settings.adjustSeries" = "Upravit série";
+
+"sessionDetail.finished" = "Událost již skončila";
+"sessionDetail.rainChance" = "Šance na déšť";
+"sessionDetail.rainIntensity" = "Intenzita deště";
+
+// Common
+
+"ok" = "OK";
+"retry" = "Zkusit znovu";
+"error.title" = "Ale ne!";
+"error.message" = "Něco se pokazilo";
+"starts" = "Začíná";
+"ends" = "Končí";
+"noEvents" = "Žádné nadcházející akce 🥲";
+
+"sessions" = "Události";
+"session.practice" = "Trénink";
+"session.qualifying" = "Kvalifikace";
+"session.sprint" = "Sprint";
+"session.warmup" = "Warmup";
+"session.race" = "Závod";
+
+// Components
+
+"live" = "Živě";
+
+"weatherProperty.temperature.short" = "Teplota";
+"weatherProperty.humidity.short" = "Vlhkost";
+"weatherProperty.cloudCover.short" = "Mraky";
+"weatherProperty.rainAmount.short" = "Déšť";
+"weatherProperty.rainChance.short" = "Šance";
+"weatherProperty.windSpeed.short" = "Vítr";
+"weatherProperty.gust" = "Poryv";
+
+"chart.time" = "Čas";
+"chart.intensity" = "Intenzita";
+"chart.chance" = "Šance";
+
+"forecast.notYet" = "Předpověď ještě není k dispozici 🤷🏽‍♂️";
+
+// Series
+
+"serie.formula1" = "Formule 1";
+"serie.motoGp" = "MotoGP";

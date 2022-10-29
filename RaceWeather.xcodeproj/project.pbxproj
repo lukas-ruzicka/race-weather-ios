@@ -34,6 +34,7 @@
 		C314963128FBEDC70010BEDC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C3193D2F28FF2DC3003974E4 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C3426DF0290BDC5C0006E70B /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		C34305A1290D4C35002FBAFD /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C3B2D54D2895161D003FE87B /* RaceWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaceWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B2D5502895161D003FE87B /* RaceWeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceWeatherApp.swift; sourceTree = "<group>"; };
 		C3B2D5542895161E003FE87B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -163,6 +164,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				cs,
 			);
 			mainGroup = C3B2D5442895161D003FE87B;
 			packageReferences = (
@@ -239,6 +241,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C314963128FBEDC70010BEDC /* en */,
+				C34305A1290D4C35002FBAFD /* cs */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
