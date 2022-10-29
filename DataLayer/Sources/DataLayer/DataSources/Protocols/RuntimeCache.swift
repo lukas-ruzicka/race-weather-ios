@@ -20,4 +20,7 @@ enum RuntimeCacheKey: String {
     case formula1Events
     case motogpComingEvent
     case motogpEvents
+    case weatherDailyForecast
+    case weatherHourlyForecast
+    case weatherRainDetail
 }
