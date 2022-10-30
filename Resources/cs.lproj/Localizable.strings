@@ -6,6 +6,10 @@
 
 "settings.title" = "Nastavení";
 "settings.adjustSeries" = "Upravit série";
+"settings.feedback.title" = "Chybí Ti něco?";
+"settings.feedback.actionLabel" = "Dej zpětnou vazbu";
+"settings.feedback.link" = "https://forms.gle/VY9FUFk2WdTsCRxM7";
+"settings.feedback.footnote" = "Tato aplikace byla vytvořena jako \"studentský\" projekt, ale přesto bych rád viděl, že přináší nějakou hodnotu 😎";
 
 "sessionDetail.finished" = "Událost již skončila";
 "sessionDetail.rainChance" = "Šance na déšť";
