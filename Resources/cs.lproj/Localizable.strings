@@ -10,6 +10,7 @@
 "settings.feedback.actionLabel" = "Dej zpětnou vazbu";
 "settings.feedback.link" = "https://forms.gle/VY9FUFk2WdTsCRxM7";
 "settings.feedback.footnote" = "Tato aplikace byla vytvořena jako \"studentský\" projekt, ale přesto bych rád viděl, že přináší nějakou hodnotu 😎";
+"settings.trademark.appleWeather" = "Aplikace používá [ Weather](https://weatherkit.apple.com/legal-attribution.html)";
 
 "sessionDetail.finished" = "Událost již skončila";
 "sessionDetail.rainChance" = "Šance na déšť";

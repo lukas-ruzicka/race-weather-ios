@@ -10,6 +10,7 @@
 "settings.feedback.actionLabel" = "Give feedback";
 "settings.feedback.link" = "https://forms.gle/bvr1c56CQBECT17FA";
 "settings.feedback.footnote" = "This app has been created as a \"student\" project, but I'd still love to see it bringing a value to you 😎";
+"settings.trademark.appleWeather" = "Powered by [ Weather](https://weatherkit.apple.com/legal-attribution.html)";
 
 "sessionDetail.finished" = "Session already ended";
 "sessionDetail.rainChance" = "Chance of rain";

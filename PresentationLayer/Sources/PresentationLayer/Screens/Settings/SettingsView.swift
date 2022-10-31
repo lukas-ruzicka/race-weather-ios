@@ -19,6 +19,7 @@ public struct SettingsView: View {
         List {
             adjustSeriesSection
             feedbackSection
+            trademarkSection
         }
         .foregroundColor(.Text.primary)
         .navigationTitle(L10n.Settings.title)
@@ -53,6 +54,17 @@ private extension SettingsView {
             L10n.Settings.Feedback.title
         } footer: {
             L10n.Settings.Feedback.footnote
+        }
+    }
+
+    var trademarkSection: some View {
+        Section {
+            EmptyView()
+        } footer: {
+            HStack {
+                Spacer()
+                L10n.Settings.Trademark.appleWeather
+            }
         }
     }
 }
