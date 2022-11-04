@@ -9,5 +9,6 @@ struct MotoTimingEventOverviewResponseModel: Decodable {
 
     let name: String
     let start_date: String
+    let end_date: String
     let test: Int
 }

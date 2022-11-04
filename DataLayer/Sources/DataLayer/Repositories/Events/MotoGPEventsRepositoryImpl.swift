@@ -63,7 +63,7 @@ private extension MotoGPEventsRepositoryImpl {
         let currentDate = Date()
         return overviews
             .filter { $0.test == 0 }
-            .filter { Date(string: $0.start_date) ?? currentDate > currentDate }
+            .filter { Date(string: $0.end_date)?.addingTimeInterval(24 * 60 * 60) ?? currentDate > currentDate }
             .sorted(by: { Date(string: $0.start_date) ?? currentDate < Date(string: $1.start_date) ?? currentDate })
             .map(\.name)
     }
