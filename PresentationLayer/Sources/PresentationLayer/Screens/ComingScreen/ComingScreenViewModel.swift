@@ -71,13 +71,12 @@ private extension ComingScreenViewModel {
         var freshLiveSessions: [LiveSessionData] = []
         for event in comingEvents {
             let eventWithForecast = try await getForecastForEvent.use(event: event)
-            if let eventWithForecast {
-                if event.sessions.contains(where: { $0.hasntStartedYet }) {
-                    freshComingEventsWithForecast.append(eventWithForecast)
-                }
-                if let liveSession = try await fetchLiveSession(from: eventWithForecast) {
-                    freshLiveSessions.append(liveSession)
-                }
+                ?? .init(event: event, dailyForecast: nil, sessionDetails: nil)
+            if event.sessions.contains(where: { $0.hasntStartedYet }) {
+                freshComingEventsWithForecast.append(eventWithForecast)
+            }
+            if let liveSession = try await fetchLiveSession(from: eventWithForecast) {
+                freshLiveSessions.append(liveSession)
             }
             loadingProgress? += loadingProgressStep
         }
