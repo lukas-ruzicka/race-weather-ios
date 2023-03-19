@@ -58,10 +58,10 @@ extension MotoGPEventsRepositoryImpl: EventsRepository {
 private extension MotoGPEventsRepositoryImpl {
 
     func fetchComingEventNames() async throws -> [String] {
-        let overviews: [MotoTimingEventOverviewResponseModel] = try await networking
+        let response: MotoTimingEventOverviewResponseModel = try await networking
             .request(MotoTimingRequestSpec.getMotogpThisYearsEvents)
         let currentDate = Date()
-        return overviews
+        return response.calendar
             .filter { $0.test == 0 }
             .filter { Date(string: $0.end_date)?.addingTimeInterval(24 * 60 * 60) ?? currentDate > currentDate }
             .sorted(by: { Date(string: $0.start_date) ?? currentDate < Date(string: $1.start_date) ?? currentDate })

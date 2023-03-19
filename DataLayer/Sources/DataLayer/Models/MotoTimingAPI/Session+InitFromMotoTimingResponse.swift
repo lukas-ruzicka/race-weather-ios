@@ -28,8 +28,8 @@ extension Session {
 private extension SessionType {
 
     init?(from motoTimingShortName: String) {
-        if motoTimingShortName.starts(with: "FP"),
-            let number = Int(motoTimingShortName.replacingOccurrences(of: "FP", with: "")) {
+        if motoTimingShortName.starts(with: "P"),
+            let number = Int(motoTimingShortName.replacingOccurrences(of: "P", with: "")) {
             self = .practice(number: number)
             return
         }

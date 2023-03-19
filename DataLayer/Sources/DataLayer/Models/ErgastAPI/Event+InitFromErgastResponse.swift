@@ -48,7 +48,7 @@ private extension String {
             let countryName = locale
                 .displayName(forKey: NSLocale.Key.countryCode, value: code)?
                 .sanitizedCountryName ?? ""
-            if countryName.lowercased().contains(self.lowercased()) {
+            if countryName.lowercased() == sanitizedCountryName.lowercased() {
                 return code
             }
         }
@@ -65,6 +65,8 @@ private extension String {
             return "USA"
         case "United Arab Emirates":
             return "UAE"
+        case "UK":
+            return "United Kingdom"
         default:
             return self
         }
@@ -87,6 +89,8 @@ private extension ErgastEventResponseModel.MRData.RaceTable.Race {
             mapName = "United States"
         case "Yas Marina Circuit":
             mapName = "Abu Dhabi"
+        case "Las Vegas Strip Street Circuit":
+            mapName = "Las Vegas carbon"
         default:
             break
         }

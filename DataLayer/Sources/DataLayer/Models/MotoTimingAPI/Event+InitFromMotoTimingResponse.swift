@@ -90,6 +90,10 @@ private extension MotoTimingEventResponseModel {
             return .init(latitude: 2.7603410090567575, longitude: 101.73281683732247)
         case "Circuit Ricardo Tormo":
             return .init(latitude: 39.48816050658184, longitude: 0.6292142246673847)
+        case "Sokol International Racetrack":
+            return .init(latitude: 43.584038286041036, longitude: 76.56895699535758)
+        case "Buddh International Circuit":
+            return .init(latitude: 28.350607264370716, longitude: 77.53538148192355)
         default:
             NonFatalHandler.log(.missingValue(valueType: "location",
                                               key: circuit,
@@ -145,6 +149,10 @@ private extension MotoTimingEventResponseModel {
             mapName = "787801514"
         case "Circuit Ricardo Tormo":
             mapName = "659572185"
+        case "Sokol International Racetrack":
+            mapName = "1363336181"
+        case "Buddh International Circuit":
+            mapName = "886244889"
         default:
             NonFatalHandler.log(.missingValue(valueType: "trackMapUrl",
                                               key: circuit,
